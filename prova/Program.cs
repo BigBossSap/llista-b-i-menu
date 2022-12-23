@@ -14,35 +14,15 @@ namespace Ex30
 
 
 
-            int num = 1, cont, i, primers = 0, n;
 
+            int width = 80; // ancho de la consola
+            string text = "Hola mundo"; // texto a centrar
 
-            Console.WriteLine("n: ");
-            n = Convert.ToInt32(Console.ReadLine());
+            // calcula el número de espacios en blanco necesarios para centrar el texto
+            int spaces = (width - text.Length) / 2;
 
-            while (primers < n)
-            {
-                cont = 1;
-                i = 1;
-                while (i <= num / 2 && cont < 3)
-                {
-                    if (num % i == 0)
-                        cont++;
-
-                    i++;
-
-                }
-
-                if (cont == 2)
-                {
-                    Console.WriteLine(num);
-                    primers++;
-
-
-
-                }
-                num++;
-            }
+            // muestra el texto centrado
+            Console.WriteLine(new string(' ', spaces) + text + new string(' ', spaces));
 
 
 
