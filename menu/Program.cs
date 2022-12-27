@@ -20,6 +20,7 @@ namespace menu
             
             Console.WindowWidth = 80;
             Console.WindowHeight = 25;
+            Console.ForegroundColor = ConsoleColor.DarkCyan;   
 
             string num = Menu();
             Console.Clear();
@@ -38,22 +39,22 @@ namespace menu
                         Case2();
                         break;
                     case "3":
-                        Case2();
+                        Case3();
                         break;
                     case "4":
-                        Case2();
+                        Case4();
                         break;
                     case "5":
-                        Case2();
+                        Case5();
                         break;
                     case "6":
-                        Case2();
+                        Case6();
                         break;
                     case "7":
-                        Case2();
+                        Case7();
                         break;
                     case "8":
-                        Case2();
+                        Case8();
                         break;
                     
                     default:
@@ -95,7 +96,6 @@ namespace menu
             string num = Console.ReadLine();
             return num;
         }
-
         static string Format(string text)
         {
 
@@ -114,51 +114,44 @@ namespace menu
             }
             Console.Clear();
         }
-
         static void Case1()
         {
             int num1, num2;
+            Console.Clear();
             Console.WriteLine();
             Console.Write(Format("Introdueix el primer numero per fer el maxim: "));
             num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
             Console.Write(Format("Introdueix el segon numero per fer el maxim: "));
             num2 = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             Console.WriteLine();
-            Console.WriteLine(Format($"El Maxim de {num1} i {num2} es {Maxim(num1, num2)}"));
+            Console.WriteLine(Format($"El Maxim de {num1} i {num2} es: {Maxim(num1, num2)}"));
             Thread.Sleep(3000);
             ContadorRetorn();
-        }
-        static void Case2()
-        {
-            int num1, num2;
-            Console.WriteLine("Introdueix el primer numero per fer el maxim comu divisor: ");
-            num1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Introdueix el segon numero per fer el maxim comu divisor: ");
-            num2 = Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-            Console.WriteLine($"El Maxim Comu Divisor de {num1} i {num2} es {MaximComuDivisor(num1, num2)}");
-            Thread.Sleep(3000);
-            ContadorRetorn();
-        }
-
-        static void Case9()
-        {
-            for (int i = 3; i >= 1; i--)
-            {
-                Console.Clear();
-                Console.WriteLine();
-                Console.WriteLine(Format($"Adeu, sortint del programa en: {i}"));
-                Thread.Sleep(1000);
-
-            }
-            Console.Clear();
         }
         static int Maxim(int num1, int num2)
         {
             return Math.Max(num1, num2);
         }
 
+        static void Case2()
+        {
+
+            int num1, num2;
+            Console.Clear();
+            Console.WriteLine();
+            Console.Write(Format("Introdueix el primer numero per fer el maxim comu divisor: "));
+            num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+            Console.Write(Format("Introdueix el segon numero per fer el maxim comu divisor: "));
+            num2 = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine(Format($"El Maxim Comu Divisor de {num1} i {num2} es: {MaximComuDivisor(num1, num2)}"));
+            Thread.Sleep(3000);
+            ContadorRetorn();
+           
+        }
         static int MaximComuDivisor(int num1, int num2)
         {
             int i = 1;
@@ -179,7 +172,21 @@ namespace menu
 
             return mcd;
         }
-
+        static void Case3()
+        {
+            int num1, num2;
+            Console.Clear();
+            Console.WriteLine();
+            Console.Write(Format("Introdueix el primer numero per fer el minim comu multiple: "));
+            num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+            Console.Write(Format("Introdueix el segon numero per fer el minim comu multiple: "));
+            num2 = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine(Format($"El Minim Comu Multiple de {num1} i {num2} es {MinimComuMultilpe(num1, num2)}"));
+            Thread.Sleep(3000);
+            ContadorRetorn();
+        }
         static int MinimComuMultilpe(int num1, int num2)
         {
             int i = 1;
@@ -204,7 +211,18 @@ namespace menu
             }
             return mcm;
         }
-
+        static void Case4()
+        {
+            int num;
+            Console.Clear();
+            Console.WriteLine();
+            Console.Write(Format("Introdueix un numero per calcular el se Factorial: "));
+            num = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine(Format($"El Factorial de {num} es: {Factorial(num)}"));
+            Thread.Sleep(3000);
+            ContadorRetorn();
+        }
         static int Factorial(int num)
         {
             int factorial = 1;
@@ -215,7 +233,23 @@ namespace menu
 
             return factorial;
         }
+        static void Case5()
+        {
+            int num1, num2;
+            Console.Clear();
+            Console.WriteLine();
+            Console.Write(Format("Introdueix el primer numero per calcular la Combinatoria: "));
+            num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+            Console.Write(Format("Introdueix el segon numero per calcular la Combinatoria: "));
+            num2 = Convert.ToInt32(Console.ReadLine());
 
+            Console.Clear();
+            Console.WriteLine(Format($"La combinatoria de {num1} i {num2} es {Combinatoria(num1, num2)}"));
+            Thread.Sleep(3000);
+            ContadorRetorn();
+            
+        }
         static int Combinatoria(int n, int k)
         {
             n = Math.Max(n, k);
@@ -226,7 +260,21 @@ namespace menu
 
             return combinatoria;
         }
+        static void Case6()
+        {
+            int num1;
+            Console.Clear();
+            Console.WriteLine();
+            Console.Write(Format("Introdueix un numero per calcular el seu Divisor Major: "));
+            num1 = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine(Format($"El Major Divisor de {num1} es {MostrarDivisorMajor(num1)}"));
+            Thread.Sleep(3000);
+            ContadorRetorn();
 
+
+            
+        }
         static int MostrarDivisorMajor(int num1)
         {
 
@@ -252,7 +300,22 @@ namespace menu
 
 
         }
+        static void Case7()
+        {
+            int num;
+            Console.Clear();
+            Console.WriteLine();
+            Console.Write(Format($"Introdueix un numero per comprovar si es primer: "));
+            num = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            if (EsPrimer(num)) 
+            Console.WriteLine(Format($"El numero {num} ES primer!"));
+            else
+                Console.WriteLine(Format($"El numero {num} NO ES primer!"));
+            Thread.Sleep(3000);
+            ContadorRetorn();
 
+        }
         static bool EsPrimer(int num1)
         {
             int cont = 0, i = 1;
@@ -269,7 +332,21 @@ namespace menu
 
 
         }
-
+        static void Case8()
+        {
+            int num;
+            Console.Clear();
+            Console.WriteLine();
+            Console.Write(Format("Quant nombres primers vols mostrar: "));
+            num = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine();
+            Console.Write(Format($"Els {num} primers son:  "));
+            Console.WriteLine();
+            NPrimersPrimers(num);
+            Thread.Sleep(3000);
+            ContadorRetorn();
+        }
         static void NPrimersPrimers(int num)
         {
             int numero = 1, cont, i, primers = 0;
@@ -292,7 +369,9 @@ namespace menu
 
                 if (cont == 2)
                 {
-                    Console.Write(numero+ " ");
+                    Console.WriteLine();
+                    Console.Write(Format(Convert.ToString(numero)));
+                    Thread.Sleep(500);
                     primers++;
 
 
@@ -302,6 +381,34 @@ namespace menu
             }
 
         }
+
+        static void Case9()
+        {
+            for (int i = 3; i >= 1; i--)
+            {
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine(Format($"Adeu, sortint del programa en: {i}"));
+                Thread.Sleep(1000);
+
+            }
+            Console.Clear();
+        }
+       
+
+       
+
+        
+
+        
+
+        
+
+        
+
+       
+
+       
     }
 
 }
