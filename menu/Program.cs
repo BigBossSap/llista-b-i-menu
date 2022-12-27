@@ -104,6 +104,12 @@ namespace menu
         }
         static void ContadorRetorn()
         {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(Format("Presiona qualsevol tecla per continuar..."));
+            Console.ReadKey();
+
             for (int i = 3; i >= 1; i--)
             {
                 Console.Clear();
@@ -127,7 +133,7 @@ namespace menu
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine(Format($"El Maxim de {num1} i {num2} es: {Maxim(num1, num2)}"));
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
             ContadorRetorn();
         }
         static int Maxim(int num1, int num2)
@@ -148,7 +154,7 @@ namespace menu
             num2 = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             Console.WriteLine(Format($"El Maxim Comu Divisor de {num1} i {num2} es: {MaximComuDivisor(num1, num2)}"));
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
             ContadorRetorn();
            
         }
@@ -184,7 +190,7 @@ namespace menu
             num2 = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             Console.WriteLine(Format($"El Minim Comu Multiple de {num1} i {num2} es {MinimComuMultilpe(num1, num2)}"));
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
             ContadorRetorn();
         }
         static int MinimComuMultilpe(int num1, int num2)
@@ -213,20 +219,20 @@ namespace menu
         }
         static void Case4()
         {
-            int num;
+            double num;
             Console.Clear();
             Console.WriteLine();
             Console.Write(Format("Introdueix un numero per calcular el se Factorial: "));
             num = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             Console.WriteLine(Format($"El Factorial de {num} es: {Factorial(num)}"));
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
             ContadorRetorn();
         }
-        static int Factorial(int num)
+        static double Factorial(double num)
         {
-            int factorial = 1;
-            for (int i = 1; i <= num; i++)
+            double factorial = 1;
+            for (double i = 1; i <= num; i++)
             {
                 factorial *= i;
             }
@@ -235,7 +241,7 @@ namespace menu
         }
         static void Case5()
         {
-            int num1, num2;
+            double num1, num2;
             Console.Clear();
             Console.WriteLine();
             Console.Write(Format("Introdueix el primer numero per calcular la Combinatoria: "));
@@ -246,15 +252,15 @@ namespace menu
 
             Console.Clear();
             Console.WriteLine(Format($"La combinatoria de {num1} i {num2} es {Combinatoria(num1, num2)}"));
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
             ContadorRetorn();
             
         }
-        static int Combinatoria(int n, int k)
+        static double Combinatoria(double n, double k )
         {
-            n = Math.Max(n, k);
-            k = Math.Min(n, k);
-            int combinatoria = Factorial(n) / (Factorial(k) * Factorial(n - k));
+            double a = Math.Max(n, k);
+            double b = Math.Min(n, k);
+            double combinatoria = Factorial(a) / (Factorial(b) * Factorial(a - b));
 
 
 
@@ -269,7 +275,7 @@ namespace menu
             num1 = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             Console.WriteLine(Format($"El Major Divisor de {num1} es {MostrarDivisorMajor(num1)}"));
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
             ContadorRetorn();
 
 
@@ -312,7 +318,7 @@ namespace menu
             Console.WriteLine(Format($"El numero {num} ES primer!"));
             else
                 Console.WriteLine(Format($"El numero {num} NO ES primer!"));
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
             ContadorRetorn();
 
         }
@@ -344,7 +350,7 @@ namespace menu
             Console.Write(Format($"Els {num} primers son:  "));
             Console.WriteLine();
             NPrimersPrimers(num);
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
             ContadorRetorn();
         }
         static void NPrimersPrimers(int num)
