@@ -20,8 +20,8 @@ namespace menu
             //NPrimersPrimers(8);
             
             Console.WindowWidth = 80;
-            Console.WindowHeight = 25;
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WindowHeight = 26;
+            Console.ForegroundColor = ConsoleColor.Cyan;
           
             string num = Menu();
             Console.Clear();
@@ -82,8 +82,25 @@ namespace menu
         {
 
 
-            string[] menu = { "****************************************************\n"," 1. Troba el numero més gran.\n ", " 2. Troba el Maxim Comu Divisor de dos nombres.\n" , "3. Troba el Minim Comú Múltiple de dos nombres.\n", "4. Calcula el factorial d'un nombre.\n",
-            "5. Calcula la combinatoria de dos nombres.\n","6. Calcula el Major Divisor de dos nombres.\n", "7. Indica si el nombre es primer.\n", "8. Mostra els N nombres primers.\n", "9. Sortir.\n", "****************************************************\n"}; 
+            string[] menu = {
+                "1. Troba el numero més gran.\n", 
+                "2. Troba el Maxim Comu Divisor de dos nombres.\n",
+                "3. Troba el Minim Comú Múltiple de dos nombres.\n",
+                "4. Calcula el factorial d'un nombre.\n",
+                "5. Calcula la combinatoria de dos nombres.\n",
+                "6. Calcula el Major Divisor de dos nombres.\n",
+                "7. Indica si el nombre es primer.\n",
+                "8. Mostra els N nombres primers.\n",
+                "9. Sortir.\n"};
+
+            ColorVerd();
+            Console.WriteLine(new String('*',Console.WindowWidth));
+            ColorVerd();
+            Console.WriteLine();
+            Console.WriteLine(Format("MENÚ MATEMÀTIC"));
+            Console.WriteLine();
+
+            ColorBlau();
 
             foreach (string opcio in menu)
             {
@@ -91,12 +108,25 @@ namespace menu
 
 
 
-                Console.WriteLine(Format(opcio));
+                Console.WriteLine(FormatMenu(opcio));
             }
-            Console.Write(Format("Selecciona una opció: "));
             ColorVerd();
-            string num = Console.ReadLine();           
+           
+            ColorVerd();
+            Console.WriteLine();
+            Console.WriteLine(new String('*', Console.WindowWidth));
+            Console.Write(Format("Selecciona una opció: "));
+            string num = Console.ReadLine();
+           
+                       
+
             return num;
+        }
+
+        static string FormatMenu(string text)
+        {
+            text = new string(' ', 20) + text;
+            return text;    
         }
         static string Format(string text)
         {
@@ -116,7 +146,7 @@ namespace menu
             {
                 Console.Clear();
                 Console.WriteLine();
-                Console.WriteLine(Format($"Tornant al menu en {i}"));
+                Console.WriteLine(Format($"Tornant al menu en {i} segons..."));
                 Thread.Sleep(1000);
 
             }
