@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Data.SqlTypes;
 using System.Threading;
-using System.Xml;
+
+
+
 
 namespace menu
 {
@@ -20,8 +21,8 @@ namespace menu
             
             Console.WindowWidth = 80;
             Console.WindowHeight = 25;
-            Console.ForegroundColor = ConsoleColor.DarkCyan;   
-
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+          
             string num = Menu();
             Console.Clear();
             while (num != "9") 
@@ -80,20 +81,21 @@ namespace menu
         static string Menu()
         {
 
-            
+
             string[] menu = { "****************************************************\n"," 1. Troba el numero més gran.\n ", " 2. Troba el Maxim Comu Divisor de dos nombres.\n" , "3. Troba el Minim Comú Múltiple de dos nombres.\n", "4. Calcula el factorial d'un nombre.\n",
             "5. Calcula la combinatoria de dos nombres.\n","6. Calcula el Major Divisor de dos nombres.\n", "7. Indica si el nombre es primer.\n", "8. Mostra els N nombres primers.\n", "9. Sortir.\n", "****************************************************\n"}; 
 
             foreach (string opcio in menu)
             {
-                
-                
 
-                
+
+
+
                 Console.WriteLine(Format(opcio));
             }
             Console.Write(Format("Selecciona una opció: "));
-            string num = Console.ReadLine();
+            ColorVerd();
+            string num = Console.ReadLine();           
             return num;
         }
         static string Format(string text)
@@ -120,40 +122,120 @@ namespace menu
             }
             Console.Clear();
         }
+
+        static bool ValidadorNum(string num)
+        {
+            
+            
+                int esnum;
+                return Int32.TryParse(num, out esnum);
+            
+
+
+            
+        }
+        static void ColorVerd()
+        {
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            
+        }
+        static void ColorBlau()
+        {
+
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+
+        }
         static void Case1()
         {
-            int num1, num2;
+            string num1, num2;
             Console.Clear();
             Console.WriteLine();
+            ColorBlau();    
             Console.Write(Format("Introdueix el primer numero per fer el maxim: "));
-            num1 = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            num1 = Console.ReadLine();          
+            ColorBlau();
+            while (!ValidadorNum(num1))
+            {
+                Console.WriteLine();
+                Console.Write(Format($"<{num1}> no es un numero correcte. Torna: "));
+                ColorVerd();
+                num1=Console.ReadLine();
+                ColorBlau();
+            }
+            Console.Clear();
             Console.WriteLine();
             Console.Write(Format("Introdueix el segon numero per fer el maxim: "));
-            num2 = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            
+          
+            num2 = Console.ReadLine();
+            ColorBlau();
+            while (!ValidadorNum(num2))
+            {
+                Console.WriteLine();
+                Console.Write(Format($"<{num2}> no es un numero correcte. Torna-hi: "));
+                ColorVerd();
+                num2 = Console.ReadLine();
+                ColorBlau();
+            }
             Console.Clear();
             Console.WriteLine();
-            Console.WriteLine(Format($"El Maxim de {num1} i {num2} es: {Maxim(num1, num2)}"));
+            ColorBlau();
+            Console.WriteLine(Format($"El Maxim de <{num1}> i <{num2}> es: {Maxim(Convert.ToInt32(num1), Convert.ToInt32(num2))}"));
             Thread.Sleep(1500);
             ContadorRetorn();
         }
         static int Maxim(int num1, int num2)
         {
+            
+            
             return Math.Max(num1, num2);
         }
 
         static void Case2()
         {
 
-            int num1, num2;
+            string num1, num2;
+            ColorBlau();
             Console.Clear();
             Console.WriteLine();
             Console.Write(Format("Introdueix el primer numero per fer el maxim comu divisor: "));
-            num1 = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            num1 = Console.ReadLine();
+            ColorBlau();
+            while (!ValidadorNum(num1))
+            {
+                ColorBlau();
+                Console.Clear();
+                Console.WriteLine();
+                Console.Write(Format($"<{num1}> no es un numero correcte. Torna-hi: "));
+                ColorVerd();
+                num1 = Console.ReadLine();
+                ColorBlau();
+                Console.Clear();
+            }
+            ColorBlau();
             Console.WriteLine();
             Console.Write(Format("Introdueix el segon numero per fer el maxim comu divisor: "));
-            num2 = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            num2 = Console.ReadLine();
+            while (!ValidadorNum(num2))
+            {
+
+                ColorBlau();
+                Console.Clear();
+                Console.WriteLine();
+                Console.Write(Format($"<{num2}> no es un numero correcte. Torna-hi: "));
+                ColorVerd();
+                num2 = Console.ReadLine();
+                ColorBlau();
+                Console.Clear();
+            }
             Console.Clear();
-            Console.WriteLine(Format($"El Maxim Comu Divisor de {num1} i {num2} es: {MaximComuDivisor(num1, num2)}"));
+            ColorBlau();
+            Console.WriteLine(Format($"El Maxim Comu Divisor de <{num1}> i <{num2}> es: {MaximComuDivisor(Convert.ToInt32(num1), Convert.ToInt32(num2))}"));
             Thread.Sleep(1500);
             ContadorRetorn();
            
@@ -180,16 +262,44 @@ namespace menu
         }
         static void Case3()
         {
-            int num1, num2;
+            string num1, num2;
+            ColorBlau();
             Console.Clear();
             Console.WriteLine();
             Console.Write(Format("Introdueix el primer numero per fer el minim comu multiple: "));
-            num1 = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            num1 = Console.ReadLine();
+            ColorBlau();
+            while (!ValidadorNum(num1))
+            {
+                ColorBlau();
+                Console.Clear();
+                Console.WriteLine();
+                Console.Write(Format($"<{num1}> no es un numero correcte. Torna-hi: "));
+                ColorVerd();
+                num1 = Console.ReadLine();
+                ColorBlau();
+                Console.Clear();
+            }
+            Console.Clear();
             Console.WriteLine();
             Console.Write(Format("Introdueix el segon numero per fer el minim comu multiple: "));
-            num2 = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            num2 = Console.ReadLine();
+            ColorBlau();
+            while (!ValidadorNum(num2))
+            {
+                ColorBlau();
+                Console.Clear();
+                Console.WriteLine();
+                Console.Write(Format($"<{num2}> no es un numero correcte. Torna-hi: "));
+                ColorVerd();
+                num2 = Console.ReadLine();
+                ColorBlau();
+                Console.Clear();
+            }
             Console.Clear();
-            Console.WriteLine(Format($"El Minim Comu Multiple de {num1} i {num2} es {MinimComuMultilpe(num1, num2)}"));
+            Console.WriteLine(Format($"El Minim Comu Multiple de <{num1}> i <{num2}> es {MinimComuMultilpe(Convert.ToInt32(num1), Convert.ToInt32(num2))}"));
             Thread.Sleep(1500);
             ContadorRetorn();
         }
@@ -219,13 +329,29 @@ namespace menu
         }
         static void Case4()
         {
-            double num;
+            string num;
+            ColorBlau();
             Console.Clear();
             Console.WriteLine();
             Console.Write(Format("Introdueix un numero per calcular el se Factorial: "));
-            num = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            num = Console.ReadLine();
+            ColorBlau();
+            while (!ValidadorNum(num))
+            {
+                ColorBlau();
+                Console.Clear();
+                Console.WriteLine();
+                Console.Write(Format($"<{num}> no es un numero correcte. Torna-hi: "));
+                ColorVerd();
+                num = Console.ReadLine();
+                ColorBlau();
+                Console.Clear();
+            }
+            ColorBlau();
             Console.Clear();
-            Console.WriteLine(Format($"El Factorial de {num} es: {Factorial(num)}"));
+            Console.WriteLine();
+            Console.WriteLine(Format($"El Factorial de <{num}> es: {Factorial(Convert.ToDouble(num))}"));
             Thread.Sleep(1500);
             ContadorRetorn();
         }
@@ -241,17 +367,45 @@ namespace menu
         }
         static void Case5()
         {
-            double num1, num2;
+            string num1, num2;
+            ColorBlau();
             Console.Clear();
             Console.WriteLine();
             Console.Write(Format("Introdueix el primer numero per calcular la Combinatoria: "));
-            num1 = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            num1 = Console.ReadLine();
+            ColorBlau();
+            while (!ValidadorNum(num1))
+            {
+                ColorBlau();
+                Console.Clear();
+                Console.WriteLine();
+                Console.Write(Format($"<{num1}> no es un numero correcte. Torna-hi: "));
+                ColorVerd();
+                num1 = Console.ReadLine();
+                ColorBlau();
+                Console.Clear();
+            }
             Console.WriteLine();
             Console.Write(Format("Introdueix el segon numero per calcular la Combinatoria: "));
-            num2 = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            num2 = Console.ReadLine();
+            ColorBlau();
+            while (!ValidadorNum(num2))
+            {
+                ColorBlau();
+                Console.Clear();
+                Console.WriteLine();
+                Console.Write(Format($"<{num2}> no es un numero correcte. Torna-hi: "));
+                ColorVerd();
+                num2 = Console.ReadLine();
+                ColorBlau();
+                Console.Clear();
+            }
 
             Console.Clear();
-            Console.WriteLine(Format($"La combinatoria de {num1} i {num2} es {Combinatoria(num1, num2)}"));
+            Console.WriteLine();
+            Console.WriteLine(Format($"La combinatoria de <{num1}> i <{num2}> es {Combinatoria(Convert.ToDouble(num1), Convert.ToDouble(num2))}"));
             Thread.Sleep(1500);
             ContadorRetorn();
             
@@ -268,13 +422,28 @@ namespace menu
         }
         static void Case6()
         {
-            int num1;
+            string num1;
+            ColorBlau();
             Console.Clear();
             Console.WriteLine();
             Console.Write(Format("Introdueix un numero per calcular el seu Divisor Major: "));
-            num1 = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            num1 = Console.ReadLine();
+            ColorBlau();
+            while (!ValidadorNum(num1))
+            {
+                ColorBlau();
+                Console.Clear();
+                Console.WriteLine();
+                Console.Write(Format($"<{num1}> no es un numero correcte. Torna-hi: "));
+                ColorVerd();
+                num1 = Console.ReadLine();
+                ColorBlau();
+                Console.Clear();
+            }
             Console.Clear();
-            Console.WriteLine(Format($"El Major Divisor de {num1} es {MostrarDivisorMajor(num1)}"));
+            Console.WriteLine();
+            Console.WriteLine(Format($"El Major Divisor de <{num1}> es <{MostrarDivisorMajor(Convert.ToInt32(num1))}>"));
             Thread.Sleep(1500);
             ContadorRetorn();
 
@@ -308,16 +477,34 @@ namespace menu
         }
         static void Case7()
         {
-            int num;
+            string num;
+            ColorBlau();
             Console.Clear();
             Console.WriteLine();
             Console.Write(Format($"Introdueix un numero per comprovar si es primer: "));
-            num = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            num = Console.ReadLine();
+            ColorBlau();
+            while (!ValidadorNum(num))
+            {
+                ColorBlau();
+                Console.Clear();
+                Console.WriteLine();
+                Console.Write(Format($"<{num}> no es un numero correcte. Torna-hi: "));
+                ColorVerd();
+                num = Console.ReadLine();
+                ColorBlau();
+                Console.Clear();
+            }
             Console.Clear();
-            if (EsPrimer(num)) 
-            Console.WriteLine(Format($"El numero {num} ES primer!"));
+            if (EsPrimer(Convert.ToInt32(num)))
+            {
+                Console.WriteLine();
+                Console.WriteLine(Format($"El numero <{num}> ES primer!"));
+            }
             else
-                Console.WriteLine(Format($"El numero {num} NO ES primer!"));
+                Console.WriteLine();
+                Console.WriteLine(Format($"El numero <{num}> NO ES primer!"));
             Thread.Sleep(1500);
             ContadorRetorn();
 
@@ -340,17 +527,33 @@ namespace menu
         }
         static void Case8()
         {
-            int num;
+            string num;
+            ColorBlau();
             Console.Clear();
             Console.WriteLine();
             Console.Write(Format("Quant nombres primers vols mostrar: "));
-            num = Convert.ToInt32(Console.ReadLine());
+            ColorVerd();
+            num = Console.ReadLine();
+            ColorBlau();
+            while (!ValidadorNum(num))
+            {
+                ColorBlau();
+                Console.Clear();
+                Console.WriteLine();
+                Console.Write(Format($"<{num}> no es un numero correcte. Torna-hi: "));
+                ColorVerd();
+                num = Console.ReadLine();
+                ColorBlau();
+                Console.Clear();
+            }
             Console.Clear();
             Console.WriteLine();
-            Console.Write(Format($"Els {num} primers son:  "));
+            Console.Write(Format($"Els <{num}> numeros primers son:  "));
             Console.WriteLine();
-            NPrimersPrimers(num);
+            ColorVerd();
+            NPrimersPrimers(Convert.ToInt32(num));
             Thread.Sleep(1500);
+            ColorBlau();
             ContadorRetorn();
         }
         static void NPrimersPrimers(int num)
