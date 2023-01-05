@@ -19,8 +19,8 @@ namespace menu
             //Console.WriteLine(EsPrimer(3));
             //NPrimersPrimers(8);
             
-            Console.WindowWidth = 80;
-            Console.WindowHeight = 26;
+            Console.WindowWidth = 90;
+            Console.WindowHeight = 35;
             Console.ForegroundColor = ConsoleColor.Cyan;
           
             string num = Menu();
@@ -97,7 +97,14 @@ namespace menu
             Console.WriteLine(new String('*',Console.WindowWidth));
             ColorVerd();
             Console.WriteLine();
-            Console.WriteLine(Format("MENÚ MATEMÀTIC"));
+            Console.WriteLine(@"
+                                              _                       _   _      
+        /\/\   ___ _ __  _ //_    /\/\   __ _| |_ ___ _ __ ___   _\\_| |_(_) ___ 
+       /    \ / _ \ '_ \| | | |  /    \ / _` | __/ _ \ '_ ` _ \ / _` | __| |/ __|
+      / /\/\ \  __/ | | | |_| | / /\/\ \ (_| | ||  __/ | | | | | (_| | |_| | (__ 
+      \/    \/\___|_| |_|\__,_| \/    \/\__,_|\__\___|_| |_| |_|\__,_|\__|_|\___|
+                                                                             
+");
             Console.WriteLine();
 
             ColorBlau();
@@ -115,7 +122,9 @@ namespace menu
             ColorVerd();
             Console.WriteLine();
             Console.WriteLine(new String('*', Console.WindowWidth));
-            Console.Write(Format("Selecciona una opció: "));
+            ColorBlau();
+            Console.Write(FormatMenu("Selecciona una opció: "));
+            ColorVerd();
             string num = Console.ReadLine();
            
                        
@@ -125,7 +134,7 @@ namespace menu
 
         static string FormatMenu(string text)
         {
-            text = new string(' ', 20) + text;
+            text = new string(' ', 23) + text;
             return text;    
         }
         static string Format(string text)
@@ -612,9 +621,6 @@ namespace menu
                     Console.Write(Format(Convert.ToString(numero)));
                     Thread.Sleep(500);
                     primers++;
-
-
-
                 }
                 numero++;
             }
