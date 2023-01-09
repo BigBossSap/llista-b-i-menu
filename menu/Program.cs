@@ -21,8 +21,7 @@ namespace menu
             
             Console.WindowWidth = 90;
             Console.WindowHeight = 35;
-            Console.ForegroundColor = ConsoleColor.Cyan;
-          
+                     
             string num = Menu();
             Console.Clear();
             while (num != "9") 
@@ -59,6 +58,7 @@ namespace menu
                         break;
                     
                     default:
+                        ColorBlau();
                         Console.Clear();
                         Console.WriteLine();
                         Console.WriteLine(Format("No es un numero correcte!"));
@@ -72,25 +72,20 @@ namespace menu
 
             if (num == "9")
                 Case9();
-
-
-
         }
-
-
         static string Menu()
         {
 
 
             string[] menu = {
-                "1. Troba el numero més gran.\n", 
+                "1. Troba el Màxim de dos nombres.\n", 
                 "2. Troba el Maxim Comu Divisor de dos nombres.\n",
                 "3. Troba el Minim Comú Múltiple de dos nombres.\n",
-                "4. Calcula el factorial d'un nombre.\n",
-                "5. Calcula la combinatoria de dos nombres.\n",
-                "6. Calcula el Major Divisor de dos nombres.\n",
-                "7. Indica si el nombre es primer.\n",
-                "8. Mostra els N nombres primers.\n",
+                "4. Calcula el Factorial d'un nombre.\n",
+                "5. Calcula la Combinatoria de dos nombres.\n",
+                "6. Calcula el Major Divisor d'un nombre.\n",
+                "7. Indica si el nombre es Primer.\n",
+                "8. Mostra els N nombres Primers.\n",
                 "9. Sortir.\n"};
 
             ColorVerd();
@@ -131,7 +126,6 @@ namespace menu
 
             return num;
         }
-
         static string FormatMenu(string text)
         {
             text = new string(' ', 23) + text;
@@ -161,23 +155,14 @@ namespace menu
             }
             Console.Clear();
         }
-
         static bool ValidadorNum(string num)
-        {
-            
-            
+        {                     
                 int esnum;
-                return Int32.TryParse(num, out esnum);
-            
-
-
-            
+                return Int32.TryParse(num, out esnum);                       
         }
         static void ColorVerd()
         {
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            
+            Console.ForegroundColor = ConsoleColor.Green;           
         }
         static void ColorBlau()
         {
@@ -232,7 +217,6 @@ namespace menu
             
             return Math.Max(num1, num2);
         }
-
         static void Case2()
         {
 
@@ -454,9 +438,6 @@ namespace menu
             double a = Math.Max(n, k);
             double b = Math.Min(n, k);
             double combinatoria = Factorial(a) / (Factorial(b) * Factorial(a - b));
-
-
-
             return combinatoria;
         }
         static void Case6()
@@ -484,18 +465,13 @@ namespace menu
             Console.WriteLine();
             Console.WriteLine(Format($"El Major Divisor de <{num1}> es <{MostrarDivisorMajor(Convert.ToInt32(num1))}>"));
             Thread.Sleep(1500);
-            ContadorRetorn();
-
-
-            
+            ContadorRetorn();           
         }
         static int MostrarDivisorMajor(int num1)
         {
-
             int divisor = 0, maximDivisor = int.MinValue;
             for (int i = 1; i < num1; i++)
             {
-
                 if (num1 % i == 0)
                 {
                     divisor = i;
@@ -504,15 +480,9 @@ namespace menu
                 if (divisor > maximDivisor)
                 {
                     maximDivisor = divisor;
-
                 }
             }
-
-
             return maximDivisor;
-
-
-
         }
         static void Case7()
         {
@@ -546,7 +516,6 @@ namespace menu
                 Console.WriteLine(Format($"El numero <{num}> NO ES primer!"));
             Thread.Sleep(1500);
             ContadorRetorn();
-
         }
         static bool EsPrimer(int num1)
         {
@@ -626,34 +595,20 @@ namespace menu
             }
 
         }
-
         static void Case9()
         {
             for (int i = 3; i >= 1; i--)
             {
                 Console.Clear();
+                ColorBlau();
                 Console.WriteLine();
-                Console.WriteLine(Format($"Adeu, sortint del programa en: {i}"));
+                Console.WriteLine(Format($"Adeu! Sortint del programa en: {i}"));               
+                Console.WriteLine();
                 Thread.Sleep(1000);
 
             }
             Console.Clear();
-        }
-       
-
-       
-
-        
-
-        
-
-        
-
-        
-
-       
-
-       
+        }                                                  
     }
 
 }
