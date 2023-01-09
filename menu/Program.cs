@@ -258,6 +258,7 @@ namespace menu
             }
             Console.Clear();
             ColorBlau();
+            Console.WriteLine();
             Console.WriteLine(Format($"El Maxim Comu Divisor de <{num1}> i <{num2}> es: {MaximComuDivisor(Convert.ToInt32(num1), Convert.ToInt32(num2))}"));
             Thread.Sleep(1500);
             ContadorRetorn();
@@ -513,8 +514,10 @@ namespace menu
                 Console.WriteLine(Format($"El numero <{num}> ES primer!"));
             }
             else
+            {
                 Console.WriteLine();
                 Console.WriteLine(Format($"El numero <{num}> NO ES primer!"));
+            }
             Thread.Sleep(1500);
             ContadorRetorn();
         }
