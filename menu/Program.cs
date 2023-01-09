@@ -322,6 +322,7 @@ namespace menu
                 Console.Clear();
             }
             Console.Clear();
+            Console.WriteLine();
             Console.WriteLine(Format($"El Minim Comu Multiple de <{num1}> i <{num2}> es {MinimComuMultilpe(Convert.ToInt32(num1), Convert.ToInt32(num2))}"));
             Thread.Sleep(1500);
             ContadorRetorn();
